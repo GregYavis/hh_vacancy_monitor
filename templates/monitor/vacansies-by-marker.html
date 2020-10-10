@@ -1,0 +1,15 @@
+{% extends 'monitor/home.html' %}
+
+{% block content %}
+    <div class="container text-center" style="margin-top:100px;">
+
+    {% for vacancy in vacansies %}
+        <div>
+            <a href="{{ vacancy.vacancy_link }}">
+                {{ vacancy.vacancy_name }}</a>
+            {% if vacancy.new_or_old == 2 %}<a>OLD</a
+            >{% else %}<a>NEW</a>{% endif %}
+        </div>
+    {% endfor %}
+{% endblock %}
+</div>

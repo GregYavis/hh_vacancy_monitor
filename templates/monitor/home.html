@@ -1,0 +1,29 @@
+{% comment %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="{% url 'monitor:parse-hh-data' %}" class='btn btn-lg'>Button</a>
+{% block content %}
+{% endblock %}
+</body>
+</html>{% endcomment %}
+<!-- Custom CSS -->
+{% load static %}
+
+<link href="{% static 'css/base.css' %}" rel="stylesheet">
+
+{% include 'monitor/navbar.html' %}>
+{% block content %}
+    <div class="conteiner text-center" style="margin-top: 100px">
+        {% for marker in markers %}
+
+            <div>
+                <a href="{{ marker.get_marker_url }}">{{ marker }}</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+<script src="{% static 'js/base.js' %}"></script>
